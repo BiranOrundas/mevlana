@@ -261,7 +261,7 @@ function kisalt($metin, $kelimeSayisi = 3) {
 <div class="container" id="urunler">
     <div class="row">	
         <?php 
-$allowedCategories = ['Kahveler','BAHARAT', 'Kuruyemiş', 'Kuru_Meyve', 'Çaylar','ÇİKOLATA','LOKUM'];
+$allowedCategories = ['KAHVELER','BAHARAT', 'KURUYEMIS', 'KURUMEYVE', 'CAYLAR','ÇIKOLATA','LOKUM'];
 $allowedCategories = array_map('mb_strtolower', $allowedCategories); // normalize allowed list
 
 $filteredData = array_filter($data, function($urun) use ($allowedCategories) {
@@ -278,13 +278,13 @@ $filteredData = array_filter($data, function($urun) use ($allowedCategories) {
             $image = $urun['media'][0]['url'] ?? 'default.jpg';
             $category = $urun['categories'][0]['title'] ?? 'Kategori Yok';
         ?>
-        <div class="col-sm-6 col-md-4 shadow-sm">
+        <div class="col-sm-6 col-md-3 shadow-sm">
             <div class="panel panel-default transition curs" >
                 <div class="panel-body text-center row">
                     <a href="<?= $url ?>" target="_blank">
                         <img src="<?= $image ?>" alt="<?= htmlspecialchars($title) ?>" class="img-responsive center-block" style="max-height:200px; margin-bottom: 10px; border-radius:7px;">
                     </a>
-                    <h3  style="font-size: 16px; background-color:#fff9e5ff; color: #9a7d1f; font-weight: 600; min-height: 50px; padding:10px;">
+                    <h3  style="font-size: 15px; background-color:#fff9e5ff; color: #9a7d1f; font-weight: 600; min-height: 60px; padding-top:20px;">
                         <?= htmlspecialchars($title) ?>
                     </h3>
 					<h3  style="font-size: 10px; color: #a3a096ff; font-weight: 300; min-height: 15px; margin-top:5px;">
@@ -295,7 +295,8 @@ $filteredData = array_filter($data, function($urun) use ($allowedCategories) {
 					</p> -->
 					<div class=" text-center ">  					
 					<p style="font-size:20px; margin-top:5px; font-weight:bold;"> <?= $price . ' ₺ ' ?> </p> 
-					    <p style=" font-size:12px;  margin-top:0px; color: #a3a096ff;"><strong> Stok : <?= $stock ?>  </strong></p>						
+					    <p class="stock-info" data-stock="<?= $stock ?>">Stok: <?= $stock ?></p>
+					
 					</div>		
                                           
                 </div>
@@ -310,6 +311,24 @@ $filteredData = array_filter($data, function($urun) use ($allowedCategories) {
     </div>
 </div>
 	</section>
+
+<script>
+function stocklimit () {
+    const stockElements = document.querySelectorAll('.stock-info');
+
+    stockElements.forEach(el => {
+        const stock = parseInt(el.dataset.stock);
+        if (stock <= 5) {
+            el.style.color = "red";
+        } else {
+            el.style.color = "black";
+        }
+    });
+}
+
+stocklimit();
+</script>
+
 	<section id="blog">
 		<div class="container ">
 			<div class="row ">
@@ -485,41 +504,7 @@ $filteredData = array_filter($data, function($urun) use ($allowedCategories) {
 							</div>
 						</div>
 					</div>
-	<!--
-    price start
-    ============================ -->
-	
-	<!--
-    subscribe start
-    ============================ -->
-	<section id="subscribe">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="block">
-						<h1 class=" heading wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms"> 
-							<span>to our</span> NEWSLETTER</h1>
-						<p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms">Lorem ipsum dolor sit
-							amet, consectetur adipiscing elit, sed do eiusmod </p>
-						<form class="form-inline">
-							<div class="form-group">
-								<div class="input-group">
-									<input type="text" class="form-control" id="exampleInputAmount"
-										placeholder="Enter your email to subscribe...">
-									<div class="input-group-addon">
-										<button class="btn btn-default" type="submit">subscribe</button>
-									</div>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div><!-- .col-md-12 close -->
-			</div><!-- .row close -->
-		</div><!-- .containe close -->
-	</section><!-- #subscribe close -->
-	<!--
-    CONTACT US  start
-    ============================= -->
+
 	<section id="contact-us">
 		<div class="container">
 			<div class="row">
@@ -544,13 +529,11 @@ $filteredData = array_filter($data, function($urun) use ($allowedCategories) {
 						<a class="btn btn-default wow bounceIn" data-wow-duration="500ms" data-wow-delay="1300ms" href="#"
 							role="button">Mesajı Gönder</a>
 					</div>
-				</div><!-- .col-md-12 close -->
-			</div><!-- .row close -->
-		</div><!-- .container close -->
-	</section><!-- #contact-us close -->
-	<!--
-    footer  start
-    ============================= -->
+				</div>
+			</div>
+		</div>
+	</section>
+	
 	<section id="footer">
 		<div class="container">
 			<div class="row">
