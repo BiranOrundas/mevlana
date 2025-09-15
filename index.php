@@ -69,7 +69,23 @@
   transform: scale(1.1);
 }
 
-
+@keyframes textwel {
+  0% {
+transform:scale(1)
+  }
+  50% {
+    transform:scale(1.05)
+  }  
+  100% {
+    transform:scale(1)
+  }
+}
+.textanim{  
+animation-name :textwel;
+animation-duration: 2s ;
+animation-iteration-count: infinite ;
+animation-timing-function: ease-in-out;
+}
 
 </style>
    
@@ -92,8 +108,8 @@
   <!-- Language selection OVERLAY -->
   <div class="language-container">
       <div class="container mx-text-center">
-    <h1 class="text-center text-light font-weight-bold">Welcome to Mevlana Bazaar</h1>
-    <p class="text-center text-light ">Please Choose Your Language</p>
+    <h1 class="text-center text-light font-weight-bold textanim">Welcome to Mevlana Bazaar</h1>
+    <p class="text-center text-light text-8 ">Please Choose Your Language</p>
 
   </div>
     <div class="language_bar">
