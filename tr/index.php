@@ -225,8 +225,8 @@ transition-duration: 0.5s !important;
 			<div class="row">
 				<div class="col-md-12">
 					<div class="block">
-						<img class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms" src="../images/cooker-img.png"
-							alt="cooker-img">
+						<img class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms" src="../images/main/chefphoto.jpg"
+							alt="CEO_ali_polat" style="max-width:150px">
 						<h1 class="heading wow fadeInUp" data-wow-duration="400ms" data-wow-delay="500ms">Türk Mutfağının
 							<span> Efsane Lezzetleri</span> </br>Her Yerde <span> Sizinle</span>
 						</h1>
