@@ -2,12 +2,12 @@
 <html class="no-js">
 
 <head>	
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="author" content="Mevlana Bazaar">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Mevlana Bazaar">
 
-	<!-- Canonical URL -->
-	<link rel="canonical" href="https://www.mevlanabazaar.com/tr/" />
+<!-- Canonical -->
+<link rel="canonical" href="https://www.mevlanabazaar.com/en/" />
 
 	<!-- Çok Dilli Destek: Hreflang Etiketleri -->
 	<link rel="alternate" hreflang="tr" href="https://www.mevlanabazaar.com/tr/" />
@@ -15,39 +15,39 @@
 	<link rel="alternate" hreflang="ar" href="https://www.mevlanabazaar.com/ar/" />
 	<link rel="alternate" hreflang="x-default" href="https://www.mevlanabazaar.com" />
 
-	<!-- META TAGS -->
-	<title>Mevlana Bazaar | Lokum, Kahve, Çay, Halı, Seccade ve Valiz Ürünleri</title>
-	<meta name="description" content="Mevlana Bazaar’da lokum, Türk kahvesi, çikolata, çay, kahve bardakları, halı, seccade ve valiz gibi geleneksel Türk ürünlerini keşfedin. Tüm dünyaya gönderim.">
-	<meta name="keywords" content="lokum, Türk kahvesi, çay, çikolata, halı, seccade, kahve fincanı, valiz, Mevlana Bazaar, geleneksel Türk ürünleri, hediyelik lokum, online Türk mağazası">
+<!-- META TAGS -->
+<title>Mevlana Bazaar | Turkish Delight, Coffee, Tea, Rugs & More</title>
+<meta name="description" content="Shop authentic Turkish products at Mevlana Bazaar: Turkish delight, coffee, tea, chocolate, prayer rugs, cups, suitcases and more. Worldwide delivery.">
+<meta name="keywords" content="Turkish delight, Turkish coffee, tea, chocolate, prayer rugs, Turkish rugs, Turkish cups, luggage, Mevlana Bazaar, Turkish gifts, online Turkish store">
 
-	<!--Open Graph -->
-	<meta property="og:title" content="Mevlana Bazaar | Turkish Delight, Coffee, Tea, Rugs & More">
-	<meta property="og:description" content="Discover Turkish delights, coffee, tea, rugs, prayer rugs, and traditional gifts at Mevlana Bazaar. Fast worldwide shipping!">
-	<meta property="og:url" content="https://www.mevlanabazaar.com">
-	<meta property="og:type" content="website">
-	<meta property="og:image" content="https://www.mevlanabazaar.com/images/og-image.jpg"> <!-- Görsel URL'yi kendi sitene göre güncelle -->
+<!-- Open Graph -->
+<meta property="og:title" content="Mevlana Bazaar | Turkish Delight, Coffee, Tea, Rugs & More">
+<meta property="og:description" content="Discover Turkish delights, coffee, tea, rugs, prayer rugs, and traditional gifts at Mevlana Bazaar. Fast worldwide shipping!">
+<meta property="og:url" content="https://www.mevlanabazaar.com">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://www.mevlanabazaar.com/../images/og-image.jpg"> <!-- Görsel URL'yi kendi sitene göre güncelle -->
 
-	<!-- Twitter -->
-	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Mevlana Bazaar | Authentic Turkish Products">
-	<meta name="twitter:description" content="Shop Turkish delight, coffee, tea, rugs, prayer rugs and more. Mevlana Bazaar ships worldwide!">
-	<meta name="twitter:image" content="https://www.mevlanabazaar.com/images/og-image.jpg">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mevlana Bazaar | Authentic Turkish Products">
+<meta name="twitter:description" content="Shop Turkish delight, coffee, tea, rugs, prayer rugs and more. Mevlana Bazaar ships worldwide!">
+<meta name="twitter:image" content="https://www.mevlanabazaar.com/../images/og-image.jpg">
 
-<!-- Schema.org (JSON-LD) -->
-	<script type="application/ld+json">
-	{
-	"@context": "https://schema.org",
-	"@type": "Store",
-	"name": "Mevlana Bazaar",
-	"url": "https://www.mevlanabazaar.com",
-	"logo": "https://www.mevlanabazaar.com/images/logo.png",
-	"description": "Shop Turkish delight, coffee, tea, chocolate, rugs, prayer rugs, cups, and luggage at Mevlana Bazaar. We deliver worldwide.",
-	"sameAs": [
-		"https://www.instagram.com/mevlanabazaar",
-		"https://www.facebook.com/mevlanabazaar"
-	]
-	}
-	</script>
+<!--Schema.org (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Store",
+  "name": "Mevlana Bazaar",
+  "url": "https://www.mevlanabazaar.com",
+  "logo": "https://www.mevlanabazaar.com/images/logo.png",
+  "description": "Shop Turkish delight, coffee, tea, chocolate, rugs, prayer rugs, cups, and luggage at Mevlana Bazaar. We deliver worldwide.",
+  "sameAs": [
+    "https://www.instagram.com/mevlanabazaar",
+    "https://www.facebook.com/mevlanabazaar"
+  ]
+}
+</script>
 
 	<!-- Favicon -->
 	<link rel="icon" href="../favicon.ico" type="image/x-icon">
@@ -128,7 +128,7 @@ transition-duration: 0.5s !important;
 	<!--
 	header-img start 
 	============================== -->
-	<div class="banner" > Tüm ürünlerde %20 indirim! </div>
+	<div class="banner" > 20% discount on all products! </div>
 	<section id="hero-area">
 		<img class="img-responsive" src="../images/main/headerBG.jpg" alt="mevlana_bazaar" style="object-fit: cover; object-position: center 30%; width: 100%; max-height: 650px !important; filter: saturate(1.1);">
 	</section>
@@ -160,11 +160,11 @@ transition-duration: 0.5s !important;
 								<!-- Collect the nav links, forms, and other content for toggling -->
 								<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 									<ul class="nav navbar-nav navbar-right" id="top-nav">
-										<li><a href="#hero-area">Anasayfa</a></li>
-										<li><a href="#about-us">Hakkımızda</a></li>
-										<li><a href="#blog">Kategoriler</a></li>
-										<li><a href="#price">Ürünler</a></li>										
-										<li><a href="#contact-us">Bize Ulaşın</a></li>
+										<li><a href="#hero-area">Home</a></li>
+										<li><a href="#about-us">About Us</a></li>
+										<li><a href="#blog">Categories</a></li>
+										<li><a href="#price">Products</a></li>									
+										<li><a href="#contact-us">Contact Us</a></li>
 									</ul>
 								</div><!-- /.navbar-collapse -->
 							</div><!-- /.container-fluid -->
@@ -216,10 +216,7 @@ transition-duration: 0.5s !important;
 				</div>
 			</div>
 		</div>
-	</section> -->
-	<!--
-    about-us start
-    ============================== -->
+	</section> -->	
 	<section id="about-us">
 		<div class="container">
 			<div class="row">
@@ -227,23 +224,21 @@ transition-duration: 0.5s !important;
 					<div class="block">
 						<img class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms" src="../images/main/chefphoto.jpg"
 							alt="CEO_ali_polat" style="max-width:150px">
-						<h1 class="heading wow fadeInUp" data-wow-duration="400ms" data-wow-delay="500ms">Türk Mutfağının
-							<span> Efsane Lezzetleri</span> </br>Her Yerde <span> Sizinle</span>
+						<h1 class="heading wow fadeInUp" data-wow-duration="400ms" data-wow-delay="500ms">The Legendary Flavors of
+							<span> Turkish Cuisine</span> </br>With You <span> Everywhere</span>
 						</h1>
-						<p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="600ms"><strong style="color: #9a7d1f;">Mevlana Bazaar </strong>, lezzetli lokumlar, taze kavrulmuş kuruyemişler, nefis çikolatalı drajeler, kaliteli kahveler ve şık fincanlarla yurt içi ve yurt dışı müşterilerine benzersiz bir alışveriş deneyimi sunmaktadır. Ali Polat’ın liderliğinde, her ürünümüz,<strong style="color: #9a7d1f;"> kalite ve tazelikten ödün verilmeden </strong> titizlikle seçilir ve hazırlanır.</p>
+						<p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="600ms"><strong style="color: #9a7d1f;">Mevlana Bazaar </strong>offers a unique shopping experience for both domestic and international customers, featuring delicious Turkish delights, freshly roasted nuts, exquisite chocolate dragées, high-quality coffee, and stylish cups. Under Ali Polat's leadership, each product is meticulously selected and prepared without compromising on <strong style="color: #9a7d1f;"> quality or freshness. </strong></p>
 					</div>
-				</div><!-- .col-md-12 close -->
-			</div><!-- .row close -->
-		</div><!-- .containe close -->
-	</section><!-- #call-to-action close -->
-	<!--
-    blog start
-    ============================ -->
+				</div>
+			</div>
+		</div>
+	</section>
+	
 
 	<section id="price">
 		<?php include '../connect.php'; ?>
 
-<h1 class="heading wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">Hızlı
+<h1 class="heading wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">Quick
 							<span>Market</span></h1>
 	<?php
 function kisalt($metin, $kelimeSayisi = 3) {
@@ -302,7 +297,7 @@ $filteredData = array_filter($data, function($urun) use ($allowedCategories) {
                 </div>
                 <div class="panel-footer text-center">
                     <a href="<?= $url ?>" target="_blank" class="btn btn-sm" style="background: #dab22fff; color: #fff; border: none; text-transform: uppercase; font-weight: 600;">
-                        Ürünü Gör
+                        Shop Now
                     </a>
                 </div>
             </div>
@@ -334,7 +329,7 @@ stocklimit();
 			<div class="row ">
 				<div class="col-md-12 ">
 					<div class="block">
-						<h1 class="heading">BİR <span>ARADA</span> EN GÜZEL <span>LEZZETLER</span></h1>
+						<h1 class="heading">THE BEST <span>TASTES</span> ALL <span>TOGETHER</span></h1>
 						<ul>
 							
 							<li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="300ms">
@@ -343,8 +338,8 @@ stocklimit();
 									<img src="../images/main/badem.jpg" alt="Taze_kuruyemişler" style="object-fit: cover; width: 100%; max-height: 350px;" >
 								</div>
 								<div class="content-right">
-									<h3>Taze Kavrulmuş Kuruyemişler </h3>
-									<p>Taze kavrulmuş kuruyemişlerle enerjinizi tazeleyin...
+									<h3>Fresh Roasted Nuts </h3>
+									<p>Refresh your energy with freshly roasted nuts...
 									</p>
 								</div>
 							</div>
@@ -358,8 +353,8 @@ stocklimit();
 									<img src="../images/main/bogurtlen.jpg" alt="Çikolatali_drajeler" style="object-fit: cover; width: 100%; max-height: 350px;">
 								</div>
 								<div class="content-right">
-									<h3>Nefis Çikolatalı Drajeler</h3>
-									<p>Her lokmada mutluluk: Nefis çikolatalı drajelerle tatlı bir kaçamak yapın...
+									<h3>Delicious Chocolate Dragees</h3>
+									<p>Happiness in every bite: Have a sweet escape with delicious chocolate dragees...
 									</p>
 								</div>
 							</div>
@@ -367,8 +362,8 @@ stocklimit();
 							<li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="500ms">
 									<div data-toggle="modal" data-target="#kahveler">
 								<div class="content-left">
-									<h3>Özel Türk Kahveleri</h3>
-									<p> Klasik tat, muhteşem aroma, vazgeçilmez lezzet... 
+									<h3>Special Turkish Coffees</h3>
+									<p> Classic taste, magnificent aroma, indispensable flavor... 
 									</p>
 								</div>
 								<div class="blog-img-2">
@@ -379,8 +374,8 @@ stocklimit();
 							<li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="600ms">
 								<div data-toggle="modal" data-target="#caylar">
 								<div class="content-left">
-									<h3>Orijinal Karışım Çaylar</h3>
-									<p>Dalından Toplanıp Kurutulmuş Doğal Çaylar... 
+									<h3>Original Blend Teas</h3>
+									<p>Natural Teas Picked and Dried from the Branch... 
 									</p>
 								</div>
 								<div class="blog-img-2">
@@ -394,8 +389,8 @@ stocklimit();
 									<img src="../images/main/baharat.jpg" alt="blog-img" style="object-fit: cover; width: 100%; max-height: 350px;">
 								</div>
 								<div class="content-right">
-									<h3>Tazeliğiyle En Seçkin Baharatlar</h3>
-									<p>Lezzetin sırrı, bir tutam doğru baharatta saklı...
+									<h3>The Most Selected Fresh Spices</h3>
+									<p>The secret of flavor is hidden in a pinch of the right spice...
 									</p>
 								</div>
 								</div>
@@ -406,8 +401,8 @@ stocklimit();
 									<img src="../images/main/kurulimon.jpg" alt="blog-img" style="object-fit: cover; width: 100%; max-height: 350px;">
 								</div>
 								<div class="content-right">
-									<h3>Her Damak Zevkine Uygun Kuru Meyveler </h3>
-									<p>Her damak zevkine hitap eden, taptaze ve lezzet dolu kuru meyvelerimizle tatlı bir keyif...</p>
+									<h3>Dried Fruits for Every Taste </h3>
+									<p>A sweet pleasure with our fresh and delicious dried fruits that appeal to every palate...</p>
 								</div>
 								</div>
 							</li>
@@ -510,24 +505,24 @@ stocklimit();
 			<div class="row">
 				<div class="col-md-12">
 					<div class="block">
-						<h1 class="heading wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">Bize
-							<span>ULAŞIN</span></h1>
-						<h3 class="title wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">Mesajınızı 
-							<span>Bize GÖNDERİN</span> </h3>
+						<h1 class="heading wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">CONTACT
+							<span>TO US</span></h1>
+						<h3 class="title wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">SEND E-MAIL 
+							<span>TO US</span> </h3>
 						<form>
 							<div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay="600ms">
 								<input type="email" class="form-control" id="exampleInputEmail1"
-									placeholder="Adınız Soyadınız">
+									placeholder="Name Surname">
 							</div>
 							<div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay="800ms">
-								<input type="text" class="form-control" placeholder="E-mail Adresiniz">
+								<input type="text" class="form-control" placeholder="Your E-mail">
 							</div>
 							<div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1000ms">
-								<textarea class="form-control" rows="3" placeholder="Bize göndermek istediğiniz teşekkür, öneri, şikayet mesajınız."></textarea>
+								<textarea class="form-control" rows="3" placeholder="The message of thanks, suggestions, or complaints you would like to send to us."></textarea>
 							</div>
 						</form>
 						<a class="btn btn-default wow bounceIn" data-wow-duration="500ms" data-wow-delay="1300ms" href="#"
-							role="button">Mesajı Gönder</a>
+							role="button">SEND</a>
 					</div>
 				</div>
 			</div>
@@ -539,22 +534,22 @@ stocklimit();
 			<div class="row">
 				<div class="col-md-4">
 					<div class="block wow fadeInLeft" data-wow-delay="200ms">
-						<h3>ULAŞIM <span>BİLGİSİ</span></h3>
+						<h3>CONTACT <span>INFO</span></h3>
 						<div class="info">
 							<ul>
 								<li>
-									<h4><i class="fa fa-phone"></i>Telefon</h4>
+									<h4><i class="fa fa-phone"></i>Phone:</h4>
 									<p> <a class="a" href="tel:+02124582427"> 0 212 458 24 27 </p>
 									
 									<p> <a class="a" href="tel:+05558275555"> +90 555 827 55 55 </p>
 
 								</li>
 								<li>
-									<h4><i class="fa fa-map-marker"></i>Adres : </h4>
+									<h4><i class="fa fa-map-marker"></i>Adress: </h4>
 									<p><a class="a" href="https://maps.app.goo.gl/89wjkRkvtECroiS2A" target="_blank" rel="noopener noreferrer"> Sahil Yolu, Sultanahmet Mahallesi, Kennedy Cad. No:38, 34400 Fatih/İstanbul</a></p>
 								</li>
 								<li>
-									<h4><i class="fa fa-envelope"></i>E-mail</h4>
+									<h4><i class="fa fa-envelope"></i>E-mail:</h4>
 									<p><a class="a" href="mailto:mevlanabazaar@gmail.com">mevlanabazaar@gmail.com</a></p>
 
 								</li>
@@ -565,16 +560,16 @@ stocklimit();
 				<!-- .col-md-4 close -->
 				<div class="col-md-4">
 					<div class="block wow fadeInLeft" data-wow-delay="700ms">
-						<h3>EN SON <span>HABERLER</span></h3>
+						<h3>LASTEST <span>NEWS</span></h3>
 						<div class="blog">
 							<ul>
 								<li>
-									<h4><a href="https://www.turizmaktuel.com/haber/mevlana-bazaar-sektorun-lideri-oldu">Mevlana Bazaar sektörün lideri oldu.</a></h4>
-									<p>Mevlana Bazaar CEO'su Abdulvahap Polat, IMEX Fuarı'nda Turizm Aktüel'e verdiği röportajda firması hakkında bilgi verdi.</p>
+									<h4><a href="https://www.turizmaktuel.com/haber/mevlana-bazaar-sektorun-lideri-oldu">Mevlana Bazaar became the leader of the industry.</a></h4>
+									<p>Mevlana Bazaar CEO Abdulvahap Polat gave information about his company in an interview with Turizm Aktüel at the IMEX Fair.</p>
 								</li>
 								<li>
-									<h4><a href="https://mevlana-bazaar.best-istanbul-hotels.com/tr/">Hotel Mevlana Bazaar İstanbul</a></h4>
-									<p>24-saat güvenlik, döviz bürosu gibi olanakların bulunduğu Hotel Mevlana Bazaar İstanbul şehrinde bulunmaktadır. Beyazıt Kulesi 25 dakikalık, Sirkeci tren istasyonu ise 10 dakikalık yürüme mesafesindedir.</p>
+									<h4><a href="https://mevlana-bazaar.best-istanbul-hotels.com/tr/">Hotel Mevlana Bazaar Istanbul</a></h4>
+									<p>Offering 24-hour security and currency exchange, Hotel Mevlana Bazaar is located in Istanbul. Beyazıt Tower is a 25-minute walk away, and Sirkeci train station is a 10-minute walk away.</p>
 								</li>
 							</ul>
 						</div>
@@ -584,7 +579,7 @@ stocklimit();
 				<div class="col-md-4">
 					<div class="block wow fadeInLeft" data-wow-delay="1100ms">
 						<div class="gallary">
-							<h3>SOSYAL <span>MEDYADA</span> BİZ</h3>
+							<h3>WE ON <span>SOCIAL</span> MEDIA</h3>
 							<ul>
 								<li>
 									<a href="https://www.instagram.com/mevlanabazaar"><img src="../images/photo/photo-1.jpg" alt=""></a>
@@ -601,7 +596,7 @@ stocklimit();
 							</ul>
 						</div>
 						<div class="social-media-link">
-							<h3>Bizi <span>Takip Edin.</span></h3>
+							<h3>Follow <span> us</span></h3>
 							<ul>
 								<li>
 									<a href="#">

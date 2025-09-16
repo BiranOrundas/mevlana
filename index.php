@@ -8,6 +8,15 @@
     <meta name="description" content="Shop authentic Turkish products at Mevlana Bazaar: Turkish delight, coffee, tea, chocolate, prayer rugs, cups, suitcases and more. Worldwide delivery.">
     <meta name="keywords" content="Turkish delight, Turkish coffee, tea, chocolate, prayer rugs, Turkish rugs, Turkish cups, luggage, Mevlana Bazaar, Turkish gifts, online Turkish store">
 
+<!-- Canonical URL -->
+	<link rel="canonical" href="https://www.mevlanabazaar.com/tr/" />
+
+	<!-- Çok Dilli Destek: Hreflang Etiketleri -->
+	<link rel="alternate" hreflang="tr" href="https://www.mevlanabazaar.com/tr/" />
+	<link rel="alternate" hreflang="en" href="https://www.mevlanabazaar.com/en/" />
+	<link rel="alternate" hreflang="ar" href="https://www.mevlanabazaar.com/ar/" />
+	<link rel="alternate" hreflang="x-default" href="https://www.mevlanabazaar.com" />
+  
     <!-- Open Graph -->
     <meta property="og:title" content="Mevlana Bazaar | Turkish Delight, Coffee, Tea, Rugs & More">
     <meta property="og:description" content="Discover Turkish delights, coffee, tea, rugs, prayer rugs, and traditional gifts at Mevlana Bazaar. Fast worldwide shipping!">
