@@ -13,41 +13,123 @@ $response = $client->request('GET', 'https://api.shopier.com/v1/products?limit=5
 
  $body = $response->getBody();
 $data = json_decode($body, true); // JSON → PHP dizi
-// echo ('<pre>');
-// print_r($data);
-// echo ('<pre>');
+$path = $_SERVER['REQUEST_URI'];
+// Dil tespiti
 
-// $data = json_decode($response->getBody(), true); // JSON'dan diziye dönüştürdüğünü varsayıyoruz
+if (strpos($path, '/en/') !== false) {
+    $lang = 'en';
+} elseif (strpos($path, '/ar/') !== false) {
+    $lang = 'ar';
+} elseif (strpos($path, '/tr/') !== false) {
+    $lang = 'tr';
+} else {
+    $lang = 'tr'; 
+}
 
-// echo '<div class="urunler">';
-// foreach ($data as $urun) {
-//     $id = $urun['id'];
-//     $title = $urun['title'];
-//     $description = $urun['description'];
-//     $price = $urun['priceData']['discountedPrice'] ?? $urun['priceData']['price'];
-//     $currency = $urun['priceData']['currency'];
-//     $stock = $urun['stockQuantity'];
-//     $url = $urun['url'];
+$translations = [
+    'tr' => [
+        'button' => 'Ürünü Gör',
+        'stock' => 'Stok',
+    ],
+    'en' => [
+        'button' => 'Shop Now',
+        'stock' => 'Stock',
+    ],
+    'ar' => [
+        'button' => 'عرض المنتج',
+        'stock' => 'المخزون',
+    ],
+];
 
-//     // İlk görsel (varsa)
-//     $image = isset($urun['media'][0]['url']) ? $urun['media'][0]['url'] : 'default.jpg';
+$buttonText = $translations[$lang]['button'] ?? 'Ürünü Gör';
+$stockLabel = $translations[$lang]['stock'] ?? 'Stok';
 
-//     // Kategori
-//     $category = isset($urun['categories'][0]['title']) ? $urun['categories'][0]['title'] : 'Kategori Yok';
+// Açıklama kısaltma fonksiyonu
+function kisalt($metin, $kelimeSayisi = 3) {
+    $metin = preg_replace('/<!--[\s\S]*?-->/', '', $metin);
+    $metin = strip_tags($metin);
+    $kelimeler = explode(' ', $metin);
+    $kisaMetin = array_slice($kelimeler, 0, $kelimeSayisi);
+    return implode(' ', $kisaMetin) . '...';
+}
+// Filtrelenecek kategoriler
+$allowedCategories = ['KAHVELER','BAHARAT','KURUYEMIS','KURUMEYVE','CAYLAR','ÇIKOLATA','LOKUM'];
+$allowedCategories = array_map('mb_strtolower', $allowedCategories);
 
-//     echo "<div class='urun'>
-//         <h2>{$title}</h2>
-//         <a href='{$url}' target='_blank'>
-//             <img src='{$image}' alt='{$title}' width='200'>
-//         </a>
-//         <p><strong>Açıklama:</strong> {$description}</p>
-//         <p><strong>Fiyat:</strong> {$price} {$currency}</p>
-//         <p><strong>Stok:</strong> {$stock}</p>
-//         <p><strong>Kategori:</strong> {$category}</p>
-//     </div><hr>";
-// }
-// echo '</div>';
+// Kategoriye göre filtrele
+$filteredData = array_filter($data, function($urun) use ($allowedCategories) {
+    $category = $urun['categories'][0]['title'] ?? '';
+    return in_array(mb_strtolower($category), $allowedCategories);
+});
+
+// HTML çıktı
 ?>
+
+<section id="price">
+    <div class="container" id="urunler">
+        <div class="row">
+            <?php foreach ($filteredData as $urun): 
+                $title = $urun['title'];
+                $desc = kisalt($urun['description']);
+                $price = $urun['priceData']['discountedPrice'] ?? $urun['priceData']['price'];
+                $currency = $urun['priceData']['currency'];
+                $stock = $urun['stockQuantity'];
+                $url = $urun['url'];
+                $image = $urun['media'][0]['url'] ?? 'default.jpg';
+                $category = $urun['categories'][0]['title'] ?? 'Kategori Yok';
+            ?>
+            <div class="col-sm-6 col-md-3 shadow-sm">
+                <div class="panel panel-default transition curs">
+                    <div class="panel-body text-center row">
+                        <a href="<?= $url ?>" target="_blank">
+                            <img src="<?= $image ?>" alt="<?= htmlspecialchars($title) ?>" class="img-responsive center-block" style="max-height:200px; margin-bottom: 10px; border-radius:7px;">
+                        </a>
+                        <h3 style="font-size: 15px; background-color:#fff9e5ff; color: #9a7d1f; font-weight: 600; min-height: 60px; padding-top:20px;">
+                            <?= htmlspecialchars($title) ?>
+                        </h3>
+                        <h3 style="font-size: 10px; color: #a3a096ff; font-weight: 300; min-height: 15px; margin-top:5px;">
+                            <?= htmlspecialchars($category) ?>
+                        </h3>
+                        <div class="text-center">  					
+                            <p style="font-size:20px; margin-top:5px; font-weight:bold;">
+                                <?= $price . ' ₺ ' ?>
+                            </p> 
+                            <p class="stock-info" data-stock="<?= $stock ?>">
+                                <?= $stockLabel ?>: <?= $stock ?>
+                            </p>
+                        </div>	
+                    </div>
+                    <div class="panel-footer text-center">
+                        <a href="<?= $url ?>" target="_blank" class="btn btn-sm" style="background: #dab22fff; color: #fff; border: none; text-transform: uppercase; font-weight: 600;">
+                            <?= $buttonText ?>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+<!-- Stok azsa kırmızı göster -->
+<script>
+function stocklimit () {
+    const stockElements = document.querySelectorAll('.stock-info');
+
+    stockElements.forEach(el => {
+        const stock = parseInt(el.dataset.stock);
+        if (stock <= 5) {
+            el.style.color = "red";
+        } else {
+            el.style.color = "black";
+        }
+    });
+}
+
+stocklimit();
+</script>
+
+
 
 
  

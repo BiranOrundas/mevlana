@@ -9,6 +9,8 @@ __MACOSX
 .settings
 .classpath
 .sass-cache/
+    api.php
+    config.php
 
 # OS generated files #
 ######################

@@ -229,7 +229,7 @@ transition-duration: 0.5s !important;
 						<h1 class="heading wow fadeInUp" data-wow-duration="400ms" data-wow-delay="500ms">نكهات المطبخ التركي الأسطورية
 معكم في كل مكان	
 						</h1>
-						<p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="600ms"><strong style="color: #9a7d1f;">يقدم بازار مولانا تجربة تسوق فريدة للعملاء المحليين والدوليين، ويضمّ حلويات تركية شهية، ومكسرات طازجة محمصة، وحلوى شوكولاتة فاخرة، وقهوة عالية الجودة، وأكواب أنيقة. تحت إشراف علي بولات، يتم اختيار كل منتج وتحضيره بعناية فائقة دون المساس بالجودة أو النضارة.</p>
+						<p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="600ms"><strong style="color: #9a7d1f;">يقدم مولانا بازار  تجربة تسوق فريدة للعملاء المحليين والدوليين، ويضمّ حلويات تركية شهية، ومكسرات طازجة محمصة، وحلوى شوكولاتة فاخرة، وقهوة عالية الجودة، وأكواب أنيقة. تحت إشراف علي بولات، يتم اختيار كل منتج وتحضيره بعناية فائقة دون المساس بالجودة.</p>
 					</div>
 				</div><!-- .col-md-12 close -->
 			</div><!-- .row close -->
@@ -240,94 +240,13 @@ transition-duration: 0.5s !important;
     ============================ -->
 
 	<section id="price">
-		<?php include '../connect.php'; ?>
-
-<h1 class="heading wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">السريع
-							<span>السوق</span></h1>
-	<?php
-function kisalt($metin, $kelimeSayisi = 3) {
-    // HTML yorumlarını temizle
-    $metin = preg_replace('/<!--[\s\S]*?-->/', '', $metin);
-    // HTML taglerini kaldır
-    $metin = strip_tags($metin);
-    $kelimeler = explode(' ', $metin);
-    $kisaMetin = array_slice($kelimeler, 0, $kelimeSayisi);
-    return implode(' ', $kisaMetin) . '...';
-}
-
-?>
-
-<div class="container" id="urunler">
-    <div class="row">	
-        <?php 
-$allowedCategories = ['KAHVELER','BAHARAT', 'KURUYEMIS', 'KURUMEYVE', 'CAYLAR','ÇIKOLATA','LOKUM'];
-$allowedCategories = array_map('mb_strtolower', $allowedCategories); // normalize allowed list
-
-$filteredData = array_filter($data, function($urun) use ($allowedCategories) {
-    $category = $urun['categories'][0]['title'] ?? '';
-    return in_array(mb_strtolower($category), $allowedCategories); // normalize category
-});
-		foreach ($filteredData as $urun): 
-            $title = $urun['title'];
-            $desc = kisalt($urun['description']);
-            $price = $urun['priceData']['discountedPrice'] ?? $urun['priceData']['price'];
-            $currency = $urun['priceData']['currency'];
-            $stock = $urun['stockQuantity'];
-            $url = $urun['url'];
-            $image = $urun['media'][0]['url'] ?? 'default.jpg';
-            $category = $urun['categories'][0]['title'] ?? 'Kategori Yok';
-        ?>
-        <div class="col-sm-6 col-md-3 shadow-sm">
-            <div class="panel panel-default transition curs" >
-                <div class="panel-body text-center row">
-                    <a href="<?= $url ?>" target="_blank">
-                        <img src="<?= $image ?>" alt="<?= htmlspecialchars($title) ?>" class="img-responsive center-block" style="max-height:200px; margin-bottom: 10px; border-radius:7px;">
-                    </a>
-                    <h3  style="font-size: 15px; background-color:#fff9e5ff; color: #9a7d1f; font-weight: 600; min-height: 60px; padding-top:20px;">
-                        <?= htmlspecialchars($title) ?>
-                    </h3>
-					<h3  style="font-size: 10px; color: #a3a096ff; font-weight: 300; min-height: 15px; margin-top:5px;">
-                        <?= htmlspecialchars($category) ?>
-                    </h3>
-                   <!-- <p style="color: #959595; font-size: 14px; min-height: 10px;">
-					<?= htmlspecialchars(kisalt($urun['description'])) ?>
-					</p> -->
-					<div class=" text-center ">  					
-					<p style="font-size:20px; margin-top:5px; font-weight:bold;"> <?= $price . ' ₺ ' ?> </p> 
-					    <p class="stock-info" data-stock="<?= $stock ?>">Stok: <?= $stock ?></p>
-					
-					</div>		
-                                          
-                </div>
-                <div class="panel-footer text-center">
-                    <a href="<?= $url ?>" target="_blank" class="btn btn-sm" style="background: #dab22fff; color: #fff; border: none; text-transform: uppercase; font-weight: 600;">
-                        شاهد المنتج
-                    </a>
-                </div>
-            </div>
-        </div>
-        <?php endforeach; ?>
-    </div>
+<div class="block">
+						<h1 class="heading">سوق<span> سريع<span></h1>
+						<ul>
 </div>
+
+		<?php include '../connect.php'; ?>
 	</section>
-
-<script>
-function stocklimit () {
-    const stockElements = document.querySelectorAll('.stock-info');
-
-    stockElements.forEach(el => {
-        const stock = parseInt(el.dataset.stock);
-        if (stock <= 5) {
-            el.style.color = "red";
-        } else {
-            el.style.color = "black";
-        }
-    });
-}
-
-stocklimit();
-</script>
-
 	<section id="blog">
 		<div class="container ">
 			<div class="row ">
@@ -379,8 +298,7 @@ stocklimit();
 								<div data-toggle="modal" data-target="#caylar">
 								<div class="content-left">
 									<h3>مزيج الشاي الأصلي</h3>
-									<p>الشاي الطبيعي المختار والمجفف من الفرع... 
-									</p>
+									<p>الشاي الطبيعي المختار والمجفف 									</p>
 								</div>
 								<div class="blog-img-2">
 									<img src="../images/main/cay.jpg" alt="blog-img" style="object-fit: cover; width: 100%; max-height: 350px;">
@@ -584,16 +502,16 @@ stocklimit();
 							<h3>نحن على وسائل التواصل الاجتماعي</h3>
 							<ul>
 								<li>
-									<a href="https://www.instagram.com/mevlanabazaar"><img src="../images/photo/photo-1.jpg" alt=""></a>
+									<a href="https://www.instagram.com/mevlanabazaar"><img style="max-width:64px"  src="https://cdn.shopier.app/pictures_large/mevlanapolatbazaar_d8a96ce1dc5cab45901a56dc20f625d9.jpeg" alt=""></a>
 								</li>
 								<li>
-									<a href="https://www.instagram.com/mevlanabazaar"><img src="../images/photo/photo-2.jpg" alt=""></a>
+									<a href="https://www.instagram.com/mevlanabazaar"><img style="max-width:64px"  src="https://cdn.shopier.app/pictures_large/mevlanapolatbazaar_31310a13082f6f0d3e0b05b4940abe38.png" alt=""></a>
 								</li>
 								<li>
-									<a href="https://www.instagram.com/mevlanabazaar"><img src="../images/photo/photo-3.jpg" alt=""></a>
+									<a href="https://www.instagram.com/mevlanabazaar"><img style="max-width:64px"  src="https://cdn.shopier.app/pictures_large/mevlanapolatbazaar_50f3f035843fbf8fa753844212be289a.jpg" alt=""></a>
 								</li>
 								<li>
-									<a href="https://www.instagram.com/mevlanabazaar"><img src="../images/photo/photo-4.jpg" alt=""></a>
+									<a href="https://www.instagram.com/mevlanabazaar"><img style="max-width:64px"  src="https://cdn.shopier.app/pictures_large/mevlanapolatbazaar_de321ec06a42be211329e96f73f70565.jpg" alt=""></a>
 								</li>
 							</ul>
 						</div>
