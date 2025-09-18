@@ -230,7 +230,7 @@ transition-duration: 0.5s !important;
 						<h1 class="heading wow fadeInUp" data-wow-duration="400ms" data-wow-delay="500ms">Türk Mutfağının
 							<span> Efsane Lezzetleri</span> </br>Her Yerde <span> Sizinle</span>
 						</h1>
-						<p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="600ms"><strong style="color: #9a7d1f;">Mevlana Bazaar </strong>, lezzetli lokumlar, taze kavrulmuş kuruyemişler, nefis çikolatalı drajeler, kaliteli kahveler ve şık fincanlarla yurt içi ve yurt dışı müşterilerine benzersiz bir alışveriş deneyimi sunmaktadır. Ali Polat’ın liderliğinde, her ürünümüz,<strong style="color: #9a7d1f;"> kalite ve tazelikten ödün verilmeden </strong> titizlikle seçilir ve hazırlanır.</p>
+						<p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="600ms">1950 yılında Alhas Polat tarafından kurulan<strong style="color: #9a7d1f;"> Mevlana Bazaar </strong>, lezzetli lokumlar, taze kavrulmuş kuruyemişler, nefis çikolatalı drajeler, kaliteli kahveler ve şık fincanlarla yurt içi ve yurt dışı müşterilerine benzersiz bir alışveriş deneyimi sunmaktadır. 1982 de Almanyadan tahsilini alan Ali Polat’ın liderliğinde, her ürünümüz,<strong style="color: #9a7d1f;"> kalite ve tazelikten ödün verilmeden </strong> titizlikle seçilip ve hazırlanmaya devam etmektedir.</p>
 					</div>
 				</div><!-- .col-md-12 close -->
 			</div><!-- .row close -->
@@ -245,7 +245,12 @@ transition-duration: 0.5s !important;
 						<h1 class="heading">Hızlı <span>Market</span></h1>
 						<ul>
 </div>
+
 		<?php include '../connect.php'; ?>
+		<?php include '../page2.php'; ?>
+		<?php include '../page3.php'; ?>
+		<?php include '../page4.php'; ?>
+
 	</section>
 
 

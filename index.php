@@ -96,6 +96,15 @@ animation-iteration-count: infinite ;
 animation-timing-function: ease-in-out;
 }
 
+.bazaartext{  
+  font-size:50px;
+  color:#9a7d1f;
+  letter-spacing:2px;
+  text-shadow: 0px 0px 10px #ffffff;
+  -webkit-text-stroke-width: 1.3px;
+  -webkit-text-stroke-color: black;
+}
+
 </style>
    
   </head>
@@ -117,7 +126,7 @@ animation-timing-function: ease-in-out;
   <!-- Language selection OVERLAY -->
   <div class="language-container">
       <div class="container mx-text-center">
-    <h1 class="text-center text-light font-weight-bold textanim">Welcome to Mevlana Bazaar</h1>
+    <h1 class="text-center text-light font-weight-bold textanim " style="font-size:30px; letter-spacing:0px">Welcome to <strong class="bazaartext"><br> MEVLANA BAZAAR </strong></h1>
     <p class="text-center text-light text-8 ">Please Choose Your Language</p>
 
   </div>

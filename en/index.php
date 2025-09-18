@@ -227,7 +227,7 @@ transition-duration: 0.5s !important;
 						<h1 class="heading wow fadeInUp" data-wow-duration="400ms" data-wow-delay="500ms">The Legendary Flavors of
 							<span> Turkish Cuisine</span> </br>With You <span> Everywhere</span>
 						</h1>
-						<p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="600ms"><strong style="color: #9a7d1f;">Mevlana Bazaar </strong>offers a unique shopping experience for both domestic and international customers, featuring delicious Turkish delights, freshly roasted nuts, exquisite chocolate dragées, high-quality coffee, and stylish cups. Under Ali Polat's leadership, each product is meticulously selected and prepared without compromising on <strong style="color: #9a7d1f;"> quality or freshness. </strong></p>
+						<p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="600ms">Founded in 1950 by Alhas Polat, <strong style="color: #9a7d1f;">Mevlana Bazaar </strong>offers a unique shopping experience to its domestic and international customers, offering delicious Turkish delights, freshly roasted nuts, exquisite chocolate dragées, high-quality coffees, and stylish cups. Under the leadership of Ali Polat, who received his education in Germany in 1982, each product is meticulously selected and prepared without compromising on<strong style="color: #9a7d1f;"> quality or freshness. </strong></p>
 					</div>
 				</div>
 			</div>
@@ -241,7 +241,10 @@ transition-duration: 0.5s !important;
 						<ul>
 </div>
 
-		<?php include '../connect.php'; ?>
+				<?php include '../connect.php'; ?>
+		<?php include '../page2.php'; ?>
+		<?php include '../page3.php'; ?>
+		<?php include '../page4.php'; ?>
 	</section>
 
 	<section id="blog">

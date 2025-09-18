@@ -246,6 +246,9 @@ transition-duration: 0.5s !important;
 </div>
 
 		<?php include '../connect.php'; ?>
+		<?php include '../page2.php'; ?>
+		<?php include '../page3.php'; ?>
+		<?php include '../page4.php'; ?>
 	</section>
 	<section id="blog">
 		<div class="container ">
