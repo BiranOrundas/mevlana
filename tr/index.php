@@ -246,10 +246,7 @@ transition-duration: 0.5s !important;
 						<ul>
 </div>
 
-		<?php include '../connect.php'; ?>
-		<?php include '../page2.php'; ?>
-		<?php include '../page3.php'; ?>
-		<?php include '../page4.php'; ?>
+		<?php include '../connect.php'; ?>	
 
 	</section>
 

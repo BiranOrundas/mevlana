@@ -2,8 +2,7 @@
 require_once('vendor/autoload.php');
 
 $client = new \GuzzleHttp\Client();
-
-$totalPages = 1;
+$totalPages = 4;
 $limit = 50; 
 $allProducts = [];
 
@@ -19,17 +18,34 @@ for ($page = 1; $page <= $totalPages; $page++) {
                 'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI2MTQ2N2Q4YjQ1OTk0ZTRmN2ZjMDI5NTM2ZDFhMDg5ZSIsImp0aSI6IjQxZmI0YjExNzRmNzI3ZjFlM2NjMjVlNzBiZjY3MTdkNTM1YzhmYWQxZWM2NjFjOWI5MWZkZGQzZjRkZDQ0NTMxZWM3NGNiN2MwOTcwZDcxMTUyMTNiMjljNjk3MDU1YzE5MjYwM2ZhOTdiZTlkNWI2ZTAzZjg4NjNmNjhlZDQyN2JkZmM5MzMzNDYwYTgxYjY2YzZhYmNmMjBkOWMzN2QiLCJpYXQiOjE3NTc3NTUyNjIsIm5iZiI6MTc1Nzc1NTI2MiwiZXhwIjoxOTE1NTQwMDIyLCJzdWIiOiI4ODM0NTAiLCJzY29wZXMiOlsib3JkZXJzOnJlYWQiLCJvcmRlcnM6d3JpdGUiLCJwcm9kdWN0czpyZWFkIiwicHJvZHVjdHM6d3JpdGUiLCJzaGlwcGluZ3M6cmVhZCIsInNoaXBwaW5nczp3cml0ZSIsImRpc2NvdW50czpyZWFkIiwiZGlzY291bnRzOndyaXRlIiwicGF5b3V0czpyZWFkIiwicmVmdW5kczpyZWFkIiwicmVmdW5kczp3cml0ZSIsInNob3A6cmVhZCIsInNob3A6d3JpdGUiXX0.IumIWKDP0CkMTgMAAMoBr8fgKaNNLja-bal24FI-B_qkq8G-UvQRyAXoQg6kHjTrhBfzoygnZ0QJmTlzsgt9uA3JGGBDfi_d0tRPpF4hoI4M7hn-C_w6OAB7ZUxqVGWwkkFPjt_Bo7f8T7WGv6x3mK5MPbmQl_AXGyYegOMEaaXyOx_XfesLqFXEIeZ6mNdjgEoKnbsMuTCKueY6A57mSJtohsan0vuJdz-1Fi8ncJT01TFYyRhsDDsr4jwVjHoTkRGilh2EtGnKdNsHIbegN9JqMgHvPjFCXuXzJBx6DABX2zfF5u_nqESSeis7cSssoUlBWxTog8yhZgdBH5tBrA',
             ],
         ]);
-        
-        $body = $response->getBody();
+
+        $body = $response->getBody()->getContents();
         $data = json_decode($body, true);
 
-        if (isset($data['data'])) {
-            $allProducts = array_merge($allProducts, $data['data']);
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            echo "JSON Decode Hatası: " . json_last_error_msg() . PHP_EOL;
+            break;
         }
-    } catch (\GuzzleHttp\Exception\RequestException $e) {        
-        echo "API isteği başarısız oldu: " . $e->getMessage() . "\n";
+
+        if (!empty($data)) {
+            
+            $allProducts = array_merge($allProducts, $data);
+            if (count($data) < $limit) {
+                // Son sayfaya geldik
+                break;
+            }
+        } else {
+            echo "API'den veri alınamadı veya veri boş." . PHP_EOL;
+            break;
+        }
+    } catch (\Exception $e) {
+        echo "API isteği sırasında hata: " . $e->getMessage() . PHP_EOL;
+        break; // veya continue, ihtiyaca göre
     }
-}
+} // <-- Burada for döngüsünü kapatıyoruz
+
+// Toplam alınan ürünleri kontrol et
+
 
 $path = $_SERVER['REQUEST_URI'];
 // Dil tespiti
@@ -70,15 +86,16 @@ function kisalt($metin, $kelimeSayisi = 3) {
     $kisaMetin = array_slice($kelimeler, 0, $kelimeSayisi);
     return implode(' ', $kisaMetin) . '...';
 }
+
 // Filtrelenecek kategoriler
 $allowedCategories = ['KAHVELER','BAHARAT','KURUYEMIS','KURUMEYVE','CAYLAR','ÇIKOLATA','LOKUM'];
 $allowedCategories = array_map('mb_strtolower', $allowedCategories);
 
-// Kategoriye göre filtrele
-$filteredData = array_filter($data, function($urun) use ($allowedCategories) {
+$filteredData = array_filter($allProducts, function($urun) use ($allowedCategories) {
     $category = $urun['categories'][0]['title'] ?? '';
     return in_array(mb_strtolower($category), $allowedCategories);
 });
+
 
 // HTML çıktı
 ?>
@@ -96,7 +113,7 @@ $filteredData = array_filter($data, function($urun) use ($allowedCategories) {
                 $image = $urun['media'][0]['url'] ?? 'default.jpg';
                 $category = $urun['categories'][0]['title'] ?? 'Kategori Yok';
             ?>
-            <div class="col-sm-6 col-md-3 shadow-sm">
+            <div class="col-xs-6 col-sm-4 col-md-3 shadow-sm">
                 <div class="panel panel-default transition curs">
                     <div class="panel-body text-center row">
                         <a href="<?= $url ?>" target="_blank">
@@ -146,8 +163,3 @@ function stocklimit () {
 
 stocklimit();
 </script>
-
-
-
-
- 
