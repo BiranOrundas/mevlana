@@ -119,6 +119,9 @@ transition-duration: 0.5s !important;
     max-width: 100%;
     height: auto;
 }
+
+
+
 	</style>
 
 </head>
