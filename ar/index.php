@@ -119,6 +119,66 @@ transition-duration: 0.5s !important;
     max-width: 100%;
     height: auto;
 }
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  background-color: #25D366;
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  transform: translateZ(0); /* GPU acceleration */
+  will-change: transform;
+}
+
+.whatsapp-button:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-button img {
+  width: 40px;
+  height: 40px;
+}
+
+@media (max-width: 576px) {
+  .whatsapp-button {
+    bottom: 35px;
+    right: 15px;
+    padding: 8px;
+  }
+
+  .whatsapp-button img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .whatsapp-tooltip {
+  position: fixed;
+  bottom: 80px; /* butonun üstünde */
+  right: 20px;
+  background: #fff;
+  color: #333;
+  padding: 8px 12px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  z-index: 9999;
+  font-size: 14px;
+  max-width: 200px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+
+.whatsapp-tooltip.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+}
 
 
 
@@ -176,52 +236,7 @@ transition-duration: 0.5s !important;
 			</div><!-- .row close -->
 		</div><!-- .container close -->
 	</nav><!-- header close -->
-	<!--
-    Slider start
-    ============================== -->
-	<!-- <section id="slider">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="block wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
-						<div class="title">
-							<h3>Muhteşem <span>Kampanyalar</span></h3>
-						</div>
-						<div id="owl-example" class="owl-carousel">
-							<div>
-								<img class="img-responsive" src="../images/slider/slider-img-1.jpg" alt="">
-							</div>
-							<div>
-								<img class="img-responsive" src="../images/slider/slider-img-2.jpg" alt="">
-							</div>
-							<div>
-								<img class="img-responsive" src="../images/slider/slider-img-3.jpg" alt="">
-							</div>
-							<div>
-								<img class="img-responsive" src="../images/slider/slider-img-4.jpg" alt="">
-							</div>
-							<div>
-								<img class="img-responsive" src="../images/slider/slider-img-1.jpg" alt="">
-							</div>
-							<div>
-								<img class="img-responsive" src="../images/slider/slider-img-2.jpg" alt="">
-							</div>
-							<div>
-								<img class="img-responsive" src="../images/slider/slider-img-3.jpg" alt="">
-							</div>
-							<div>
-								<img class="img-responsive" src="../images/slider/slider-img-4.jpg" alt="">
-							</div>
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section> -->
-	<!--
-    about-us start
-    ============================== -->
+	
 	<section id="about-us">
 		<div class="container">
 			<div class="row">
@@ -568,6 +583,33 @@ transition-duration: 0.5s !important;
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
+<script>
+  window.addEventListener("load", function () {
+    const btn = document.createElement("a");
+    btn.href = "https://wa.me/905346169724"; // Numaranı buraya yaz
+    btn.className = "whatsapp-button";
+    btn.target = "_blank";
+    btn.rel = "noopener noreferrer";
+    btn.innerHTML = '<img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp">';
 
+    document.body.appendChild(btn);
+
+	  // Tooltip (konuşma balonu) oluştur
+    const tooltip = document.createElement("div");
+    tooltip.className = "whatsapp-tooltip";
+    tooltip.textContent = "كيف يمكننا مساعدتك؟";
+    document.body.appendChild(tooltip);
+
+    // 2 saniye sonra göster
+    setTimeout(() => {
+      tooltip.classList.add("show");
+    }, 2000);
+
+    // 7 saniye sonra otomatik gizle
+    setTimeout(() => {
+      tooltip.classList.remove("show");
+    }, 9000);
+  });
+</script>
 
 </html>

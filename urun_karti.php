@@ -17,9 +17,9 @@
     }
 ?>
 
-<div class="col-xs-12 col-sm-6 col-md-3 shadow-sm">
+<div class="col-xs-6 col-sm-6 col-md-3 shadow-sm">
     <div class="panel panel-default transition curs">
-        <div class="panel-body text-center row mt-2">
+        <div class="panel-body text-center row" style="margin-top:10px;">
             <a href="<?= $url ?>" target="_blank">
                 <img src="<?= $image ?>" loading="lazy" alt="<?= htmlspecialchars($title) ?>" class="img-responsive center-block" style="max-height:400px; margin-bottom: 10px; border-radius:7px;">
             </a>

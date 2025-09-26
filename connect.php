@@ -6,14 +6,21 @@
     font-weight: 600 !important;
     
 }
+body {
+    overflow-x: hidden !important;
+}
 </style>
 
 <?php
 require_once('vendor/autoload.php');
 
 $client = new \GuzzleHttp\Client();
-$totalPages = 10;
+$totalPages = 20;
 $limit = 50; 
+$totalPages2 = 20;  // 2. API sayfa sayısı
+$limit2 = 50;      // 2. API limit
+
+
 $allProducts = [];
 
 for ($page = 1; $page <= $totalPages; $page++) {
@@ -60,6 +67,47 @@ for ($page = 1; $page <= $totalPages; $page++) {
     }
 } 
 
+// 2. API
+for ($page = 1; $page <= $totalPages2; $page++) {
+    $url2 = "https://api.shopier.com/v1/products?limit=$limit2&page=$page&sort=dateDesc";
+    try {
+        $response2 = $client->request('GET', $url2, [
+            'headers' => [
+                'accept' => 'application/json',
+                'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJmNTc5MWM5Mjg4OGJmNTgyNjk3ZTRkYjc5ZTIyNjNhOSIsImp0aSI6ImMyNzU3MDQwZTgxN2ZlNjdhY2JmNGFlNGQ2ZWM1OTgwOWViMjI1YjVlY2YwYzQxYTdjODEwMjYwZmQzMTZiOGQyMTZjMzYxNDYzYjk2ZDdiNjE2OGU4ODgyZWIwYTU3OTAwNWMzNjMyYjIxNzM3ZjdlMDkwYWFiNzJjNjM4ZjZhZWUxZGVlYzlhNjkzNzI0YmI1MmU5MDhiN2IxZDEyMGYiLCJpYXQiOjE3NTg4MTI1MDEsIm5iZiI6MTc1ODgxMjUwMSwiZXhwIjoxOTE2NTk3MjYxLCJzdWIiOiIyNjg4MzY3Iiwic2NvcGVzIjpbIm9yZGVyczpyZWFkIiwib3JkZXJzOndyaXRlIiwicHJvZHVjdHM6cmVhZCIsInByb2R1Y3RzOndyaXRlIiwic2hpcHBpbmdzOnJlYWQiLCJzaGlwcGluZ3M6d3JpdGUiLCJkaXNjb3VudHM6cmVhZCIsImRpc2NvdW50czp3cml0ZSIsInBheW91dHM6cmVhZCIsInJlZnVuZHM6cmVhZCIsInJlZnVuZHM6d3JpdGUiLCJzaG9wOnJlYWQiLCJzaG9wOndyaXRlIl19.jH1JUjfQu2vxN2SNGqFeIfpwonCnC9WheEP3S_1MxpK6bZoKu-kEKjKA7trb2__vqnuFv6epY9azKfBCYmBzjYMzRQXb9RCtVJxVUDc__q4XXx7nc6GNP8xW3GBffqpruHWxkPIWKlZ87sP-MqwP5zeDjc81ZHqCMzO0Z_Nc8zbGCXm_whuZZPt9y1NJ8pR7aaF6ayRWQmisBc-qHc2JnvfbcrWa37beF28nMuiEN8zDxWfWfOmu_HPqyPizuWxarHdigBhKQHFE1pS7BiGIaEYucbn5r51Z2YnRl61JeoO6v-kShTjGv7l5TiCj1fwXpWFJRSxcovUWYpHqKN2XuQ',
+            ],
+        ]);
+        $body2 = $response2->getBody()->getContents();
+        $data2 = json_decode($body2, true);
+
+        if (is_array($data2) && count($data2) > 0) {
+    $allProducts = array_merge($allProducts, $data2);
+}
+        // var_dump($data2);
+        //     echo '<pre class="contaier">';
+        //     print_r($data2);
+        //     echo '</pre>';
+
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            echo "JSON Decode Hatası (2. API): " . json_last_error_msg() . PHP_EOL;
+            break;
+        }
+
+        if (!empty($data2)) {
+            $allProducts = array_merge($allProducts, $data2);
+            if (count($data2) < $limit2) break;
+        } else {
+            echo "<script>console.log('2. API\'den veri alınamadı veya boş.');</script>" . PHP_EOL;
+            break;
+        }
+    } catch (\Exception $e) {
+    $msg = addslashes($e->getMessage()); // Tırnak kaçışlarını önlemek için
+    echo "<script>console.log('2. API isteği sırasında hata: {$msg}');</script>";
+    break;
+}
+
+}
+
 // Toplam alınan ürünleri kontrol et
 
 
@@ -92,6 +140,9 @@ $translations = [
             'valizler' => 'VALİZLER',
             'tabaklar' => 'TABAKLAR',
             'parfum-esanslar' => 'PARFÜM-ESANSLAR',
+            'caysetleri' => 'ÇAYSETLERİ',
+            'dekorasyon-obje' => 'DEKORASYON-OBJE',
+            'sabunlar' => 'SABUNLAR',
             'tum-urunler' => 'TÜM ÜRÜNLER'
         ]
     ],
@@ -110,6 +161,9 @@ $translations = [
             'valizler' => 'Suitcases',
             'tabaklar' => 'Plates',
             'parfum-esanslar' => 'Perfumes & Essences',
+            'caysetleri' => 'Tea Sets',
+            'dekorasyon-obje' => 'Decoration & Objects',
+            'sabunlar' => 'Soaps',
             'tum-urunler' => 'All Products'
         ]
     ],
@@ -128,6 +182,9 @@ $translations = [
             'valizler' => 'حقائب',
             'tabaklar' => 'أطباق',
             'parfum-esanslar' => 'عطور و اسانس',
+            'caysetleri' => 'طقم شاي',
+            'dekorasyon-obje' => 'ديكور و تحف',
+            'sabunlar' => 'صابون',
             'tum-urunler' => 'كل المنتجات'
         ]
     ]
@@ -150,7 +207,7 @@ function kisalt($metin, $kelimeSayisi = 3) {
 }
 
 // Filtrelenecek kategoriler
-$allowedCategories = ['KAHVELER','BAHARAT','KURUYEMIS','KURUMEYVE','CAYLAR','ÇIKOLATA','LOKUM','ZEYTINYAGLAR','VALIZLER','TABAKLAR','PARFUM-ESANSLAR'];
+$allowedCategories = ['KAHVELER','BAHARAT','KURUYEMIS','KURUMEYVE','CAYLAR','ÇIKOLATA','LOKUM','ZEYTINYAGLAR','VALIZLER','TABAKLAR','PARFUM-ESANSLAR','SABUNLAR','CAYSETLERI','DEKORASYON-OBJE'];
 $allowedCategories = array_map('mb_strtolower', $allowedCategories); // Hepsi küçük harfli olacak
 
 
@@ -213,39 +270,41 @@ foreach ($filteredData as $urun) {
     }
 }
             ?>
-            <!-- <div class="col-xs-12 col-sm-6 col-md-3 shadow-sm">
-                <div class="panel panel-default transition curs">
-                    <div class="panel-body text-center row">
-                        <a href="<?= $url ?>" target="_blank">
-                            <img src="<?= $image ?>" loading="lazy" alt="<?= htmlspecialchars($title) ?>" class="img-responsive center-block" style="max-height:400px; margin-bottom: 10px; border-radius:7px;">
-                        </a>
-                        <h3 style="font-size: 14px; background-color:#fff9e5ff; color: #9a7d1f; font-weight: 600; min-height: 60px; padding-top:20px;">
-                            <?= htmlspecialchars($title) ?>
-                        </h3>
-                        <h3 style="font-size: 10px; color: #a3a096ff; font-weight: 300; min-height: 15px; margin-top:5px;">
-                            <?= htmlspecialchars($category) ?>
-                        </h3>
-                        <div class="text-center">  					
-                            <p style="font-size:20px; margin-top:5px; font-weight:bold;">
-                                <?= $displayPrice; ?>
-                            </p> 
-                            <p class="stock-info" data-stock="<?= $stock ?>">
-                                <?= $stockLabel ?>: <?= $stock ?>
-                            </p>
-                        </div>	
-                    </div>
-                    <div class="panel-footer text-center">
-                        <a href="<?= $url ?>" target="_blank" class="btn btn-sm" style="background: #dab22fff; color: #fff; border: none; text-transform: uppercase; font-weight: 600;">
-                            <?= $buttonText ?>
-                        </a>
-                    </div>
-                </div>
-            </div>
+         
             <?php endforeach; ?>
         </div>
-    </div> -->
+<!-- Kategori Menüsü -->
+<nav class="navbar navbar-default visible-xs visible-sm">
+  <div class="container-fluid">
+    <!-- Menü Butonu -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#category-menu" aria-expanded="false">
+        <span class="sr-only">Menüyü Aç</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <span class="navbar-brand"><?= $translations[$lang]['categories']['tum-urunler'] ?? 'TÜM ÜRÜNLER' ?></span>
+    </div>
 
-<ul class="nav nav-tabs">
+    <!-- Hamburger içeriği -->
+    <div class="collapse navbar-collapse" id="category-menu">
+      <ul class="nav navbar-nav">
+        <li class="active">
+            <a data-toggle="tab" href="#all"><?= $translations[$lang]['categories']['tum-urunler'] ?? 'TÜM ÜRÜNLER' ?></a>
+        </li>
+        <?php foreach ($allowedCategories as $catKey): ?>
+            <li>
+                <a data-toggle="tab" href="#<?= $catKey ?>"><?= $translations[$lang]['categories'][$catKey] ?? strtoupper($catKey) ?></a>
+            </li>
+        <?php endforeach; ?>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Masaüstü için kategori sekmeleri -->
+<ul class="nav nav-tabs hidden-xs hidden-sm">
     <li class="active">
         <a data-toggle="tab" href="#all"><?= $translations[$lang]['categories']['tum-urunler'] ?? 'TÜM ÜRÜNLER' ?></a>
     </li>
@@ -255,6 +314,7 @@ foreach ($filteredData as $urun) {
         </li>
     <?php endforeach; ?>
 </ul>
+
 
 
 
@@ -322,4 +382,6 @@ function stocklimit () {
 }
 
 stocklimit();
+
+
 </script> 
