@@ -53,6 +53,7 @@
 	<!-- Favicon -->
 	<link rel="icon" href="../favicon.ico" type="image/x-icon">
 	<!-- CSS -->
+	 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">	
 	<link rel="stylesheet" href="../css/owl.carousel.css">	
@@ -82,6 +83,17 @@
 		});
 		});
 	</script>
+	 <meta name="google-site-verification" content="DHufTRNHsyUi3qvM6Ed8b3LCTrtN0i7hF-eNwr46jxc" />
+	
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-24JELY2TNS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-24JELY2TNS');
+</script>
 
 	<style>
 
@@ -190,7 +202,13 @@ transition-duration: 0.5s !important;
 
 	</style>
 
-	
+	<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-24JELY2TNS');
+</script>
 
 </head>
 
@@ -234,8 +252,8 @@ transition-duration: 0.5s !important;
 									<ul class="nav navbar-nav navbar-right" id="top-nav">
 										<li><a href="#hero-area">Anasayfa</a></li>
 										<li><a href="#about-us">Hakkımızda</a></li>
-										<li><a href="#blog">Kategoriler</a></li>
-										<li><a href="#price">Ürünler</a></li>										
+										<li><a href="blog_module.php">Yazılar</a></li>
+										<li><a href="#products">Ürünler</a></li>										
 										<li><a href="#contact-us">Bize Ulaşın</a></li>
 									</ul>
 								</div><!-- /.navbar-collapse -->
@@ -266,104 +284,14 @@ transition-duration: 0.5s !important;
 	<!--
     blog start
     ============================ -->
-
-
-	<section id="price">
+<section id="products">
 		<div class="block">
 			<h1 class="heading">Hızlı <span>Market</span></h1>
 			<ul>
 		</div>
 		<?php include '../connect.php'; ?>	
 	</section>
-	<section id="blog">
-		<div class="container ">
-			<div class="row ">
-				<div class="col-md-12 ">
-					<div class="block">
-						<h1 class="heading">BİR <span>ARADA</span> EN GÜZEL <span>LEZZETLER</span></h1>
-						<ul>
-							
-							<li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="300ms">
-								<div data-toggle="modal" data-target="#kuruyemisler">
-								<div class="blog-img">
-									<img src="../images/main/badem.jpg" alt="Taze_kuruyemişler" style="object-fit: cover; width: 100%; max-height: 350px;" >
-								</div>
-								<div class="content-right">
-									<h3>Taze Kavrulmuş Kuruyemişler </h3>
-									<p>Taze kavrulmuş kuruyemişlerle enerjinizi tazeleyin...
-									</p>
-								</div>
-							</div>
-							</li>
 
-
-							
-							<li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="400ms">
-								<div data-toggle="modal" data-target="#drajeler">
-								<div class="blog-img">
-									<img src="../images/main/bogurtlen.jpg" alt="Çikolatali_drajeler" style="object-fit: cover; width: 100%; max-height: 350px;">
-								</div>
-								<div class="content-right">
-									<h3>Nefis Çikolatalı Drajeler</h3>
-									<p>Her lokmada mutluluk: Nefis çikolatalı drajelerle tatlı bir kaçamak yapın...
-									</p>
-								</div>
-							</div>
-							</li>
-							<li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="500ms">
-									<div data-toggle="modal" data-target="#kahveler">
-								<div class="content-left">
-									<h3>Özel Türk Kahveleri</h3>
-									<p> Klasik tat, muhteşem aroma, vazgeçilmez lezzet... 
-									</p>
-								</div>
-								<div class="blog-img-2">
-									<img src="../images/main/kahve.jpg" alt="blog-img" style="object-fit: cover; width: 100%; max-height: 350px;">
-								</div>
-							</div>
-							</li>
-							<li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="600ms">
-								<div data-toggle="modal" data-target="#caylar">
-								<div class="content-left">
-									<h3>Orijinal Karışım Çaylar</h3>
-									<p>Dalından Toplanıp Kurutulmuş Doğal Çaylar... 
-									</p>
-								</div>
-								<div class="blog-img-2">
-									<img src="../images/main/cay.jpg" alt="blog-img" style="object-fit: cover; width: 100%; max-height: 350px;">
-								</div>
-								</div>
-							</li>
-							<li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="700ms">
-								<div data-toggle="modal" data-target="#baharatlar">
-								<div class="blog-img">
-									<img src="../images/main/baharat.jpg" alt="blog-img" style="object-fit: cover; width: 100%; max-height: 350px;">
-								</div>
-								<div class="content-right">
-									<h3>Tazeliğiyle En Seçkin Baharatlar</h3>
-									<p>Lezzetin sırrı, bir tutam doğru baharatta saklı...
-									</p>
-								</div>
-								</div>
-							</li>
-							<li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="800ms">
-								<div data-toggle="modal" data-target="#kurumeyveler">
-								<div class="blog-img">
-									<img src="../images/main/kurulimon.jpg" alt="blog-img" style="object-fit: cover; width: 100%; max-height: 350px;">
-								</div>
-								<div class="content-right">
-									<h3>Her Damak Zevkine Uygun Kuru Meyveler </h3>
-									<p>Her damak zevkine hitap eden, taptaze ve lezzet dolu kuru meyvelerimizle tatlı bir keyif...</p>
-								</div>
-								</div>
-							</li>
-						</ul>
-						
-					</div>
-				</div><!-- .col-md-12 close -->
-			</div><!-- .row close -->
-		</div><!-- .containe close -->
-	</section><!-- #blog close -->
 
 								<!-- Modal -->
 					<div class="modal fade" id="kuruyemisler" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

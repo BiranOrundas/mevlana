@@ -86,6 +86,17 @@
 });
 
 	</script>
+	 <meta name="google-site-verification" content="DHufTRNHsyUi3qvM6Ed8b3LCTrtN0i7hF-eNwr46jxc" />
+	
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-24JELY2TNS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-24JELY2TNS');
+</script>
 
 	<style>
 		.a {
@@ -226,8 +237,8 @@ transition-duration: 0.5s !important;
 									<ul class="nav navbar-nav navbar-right" id="top-nav">
 										<li><a href="#hero-area">Home</a></li>
 										<li><a href="#about-us">About Us</a></li>
-										<li><a href="#blog">Categories</a></li>
-										<li><a href="#price">Products</a></li>									
+										<li><a href="blog_module.php">Blogs</a></li>
+										<li><a href="#products">Products</a></li>									
 										<li><a href="#contact-us">Contact Us</a></li>
 									</ul>
 								</div>
@@ -256,105 +267,12 @@ transition-duration: 0.5s !important;
 	</section>
 	
 
-	<section id="price">
-<div class="block">
-						<h1 class="heading">Quick <span>Market</span></h1>
-						<ul>
-</div>
-
-				<?php include '../connect.php'; ?>
-
-	</section>
-
-	<section id="blog">
-		<div class="container ">
-			<div class="row ">
-				<div class="col-md-12 ">
-					<div class="block">
-						<h1 class="heading">THE BEST <span>TASTES</span> ALL <span>TOGETHER</span></h1>
-						<ul>
-							
-							<li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="300ms">
-								<div data-toggle="modal" data-target="#kuruyemisler">
-								<div class="blog-img">
-									<img src="../images/main/badem.jpg" alt="Taze_kuruyemişler" style="object-fit: cover; width: 100%; max-height: 350px;" >
-								</div>
-								<div class="content-right">
-									<h3>Fresh Roasted Nuts </h3>
-									<p>Refresh your energy with freshly roasted nuts...
-									</p>
-								</div>
-							</div>
-							</li>
-
-
-							
-							<li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="400ms">
-								<div data-toggle="modal" data-target="#drajeler">
-								<div class="blog-img">
-									<img src="../images/main/bogurtlen.jpg" alt="Çikolatali_drajeler" style="object-fit: cover; width: 100%; max-height: 350px;">
-								</div>
-								<div class="content-right">
-									<h3>Delicious Chocolate Dragees</h3>
-									<p>Happiness in every bite: Have a sweet escape with delicious chocolate dragees...
-									</p>
-								</div>
-							</div>
-							</li>
-							<li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="500ms">
-									<div data-toggle="modal" data-target="#kahveler">
-								<div class="content-left">
-									<h3>Special Turkish Coffees</h3>
-									<p> Classic taste, magnificent aroma, indispensable flavor... 
-									</p>
-								</div>
-								<div class="blog-img-2">
-									<img src="../images/main/kahve.jpg" alt="blog-img" style="object-fit: cover; width: 100%; max-height: 350px;">
-								</div>
-							</div>
-							</li>
-							<li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="600ms">
-								<div data-toggle="modal" data-target="#caylar">
-								<div class="content-left">
-									<h3>Original Blend Teas</h3>
-									<p>Natural Teas Picked and Dried from the Branch... 
-									</p>
-								</div>
-								<div class="blog-img-2">
-									<img src="../images/main/cay.jpg" alt="blog-img" style="object-fit: cover; width: 100%; max-height: 350px;">
-								</div>
-								</div>
-							</li>
-							<li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="700ms">
-								<div data-toggle="modal" data-target="#baharatlar">
-								<div class="blog-img">
-									<img src="../images/main/baharat.jpg" alt="blog-img" style="object-fit: cover; width: 100%; max-height: 350px;">
-								</div>
-								<div class="content-right">
-									<h3>The Most Selected Fresh Spices</h3>
-									<p>The secret of flavor is hidden in a pinch of the right spice...
-									</p>
-								</div>
-								</div>
-							</li>
-							<li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="800ms">
-								<div data-toggle="modal" data-target="#kurumeyveler">
-								<div class="blog-img">
-									<img src="../images/main/kurulimon.jpg" alt="blog-img" style="object-fit: cover; width: 100%; max-height: 350px;">
-								</div>
-								<div class="content-right">
-									<h3>Dried Fruits for Every Taste </h3>
-									<p>A sweet pleasure with our fresh and delicious dried fruits that appeal to every palate...</p>
-								</div>
-								</div>
-							</li>
-						</ul>
-						
-					</div>
-				</div><!-- .col-md-12 close -->
-			</div><!-- .row close -->
-		</div><!-- .containe close -->
-	</section><!-- #blog close -->
+<section id="products">
+	<div class="block">
+		<h1 class="heading">Quick <span>Market</span></h1>		
+	</div>
+		<?php include '../connect.php'; ?>
+</section>	
 
 								<!-- Modal -->
 					<div class="modal fade" id="kuruyemisler" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

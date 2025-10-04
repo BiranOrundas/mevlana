@@ -92,14 +92,7 @@ for ($page = 1; $page <= $totalPages2; $page++) {
             echo "JSON Decode Hatası (2. API): " . json_last_error_msg() . PHP_EOL;
             break;
         }
-
-        if (!empty($data2)) {
-            $allProducts = array_merge($allProducts, $data2);
-            if (count($data2) < $limit2) break;
-        } else {
-            echo "<script>console.log('2. API\'den veri alınamadı veya boş.');</script>" . PHP_EOL;
-            break;
-        }
+       
     } catch (\Exception $e) {
     $msg = addslashes($e->getMessage()); // Tırnak kaçışlarını önlemek için
     echo "<script>console.log('2. API isteği sırasında hata: {$msg}');</script>";
@@ -143,6 +136,7 @@ $translations = [
             'caysetleri' => 'ÇAYSETLERİ',
             'dekorasyon-obje' => 'DEKORASYON-OBJE',
             'sabunlar' => 'SABUNLAR',
+            'fincansetleri' => 'FİNCANSETLERİ',
             'tum-urunler' => 'TÜM ÜRÜNLER'
         ]
     ],
@@ -164,6 +158,7 @@ $translations = [
             'caysetleri' => 'Tea Sets',
             'dekorasyon-obje' => 'Decoration & Objects',
             'sabunlar' => 'Soaps',
+            'fincansetleri' => 'Cup Sets',
             'tum-urunler' => 'All Products'
         ]
     ],
@@ -185,6 +180,7 @@ $translations = [
             'caysetleri' => 'طقم شاي',
             'dekorasyon-obje' => 'ديكور و تحف',
             'sabunlar' => 'صابون',
+            'fincansetleri' => 'طقم فناجين',
             'tum-urunler' => 'كل المنتجات'
         ]
     ]
@@ -207,7 +203,7 @@ function kisalt($metin, $kelimeSayisi = 3) {
 }
 
 // Filtrelenecek kategoriler
-$allowedCategories = ['KAHVELER','BAHARAT','KURUYEMIS','KURUMEYVE','CAYLAR','ÇIKOLATA','LOKUM','ZEYTINYAGLAR','VALIZLER','TABAKLAR','PARFUM-ESANSLAR','SABUNLAR','CAYSETLERI','DEKORASYON-OBJE'];
+$allowedCategories = ['KAHVELER','BAHARAT','KURUYEMIS','KURUMEYVE','CAYLAR','ÇIKOLATA','LOKUM','ZEYTINYAGLAR','VALIZLER','TABAKLAR','PARFUM-ESANSLAR','SABUNLAR','CAYSETLERI','DEKORASYON-OBJE','FINCANSETLERI'];
 $allowedCategories = array_map('mb_strtolower', $allowedCategories); // Hepsi küçük harfli olacak
 
 
@@ -331,8 +327,8 @@ foreach ($filteredData as $urun) {
                 include 'urun_karti.php';
             endforeach; ?>
         </div>
-    </div>
-
+    </div>    
+<!-- Ürün kartları için kategori sekmeleri -->
     <?php foreach ($allowedCategories as $catKey): ?>
         <div class="tab-pane fade" id="<?= $catKey ?>">
             <div class="row">
@@ -346,21 +342,7 @@ foreach ($filteredData as $urun) {
             </div>
         </div>
     <?php endforeach; ?>
-</div>
-
-    <!-- Kategoriye Özel Sekmeler -->
-    <?php foreach ($filteredData as $urun): 
-    $rawCategory = $urun['categories'][0]['title'] ?? 'tum-urunler';
-    $categoryKey = mb_strtolower(str_replace(['Ç', 'Ğ', 'İ', 'Ö', 'Ş', 'Ü'], ['ç', 'ğ', 'i', 'ö', 'ş', 'ü'], $rawCategory));
-    $categoryKey = str_replace([' '], '-', $categoryKey); // Örn: "Parfüm Esanslar" => "parfum-esanslar"
-
-    if (!in_array($categoryKey, $allowedCategories)) continue; // Sadece izin verilenler
-
-    $category = $translations[$lang]['categories'][$categoryKey] ?? $rawCategory;
-    
-?>
-   
-<?php endforeach; ?>
+</div> 
 
 </div>
 </section>

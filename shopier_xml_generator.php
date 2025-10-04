@@ -4,7 +4,7 @@ use GuzzleHttp\Client;
 
 $client = new Client();
 
-$totalPages = 10;
+$totalPages = 20;
 $limit = 50;
 $allProducts = [];
 

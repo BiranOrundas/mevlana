@@ -32,6 +32,18 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <meta name="google-site-verification" content="DHufTRNHsyUi3qvM6Ed8b3LCTrtN0i7hF-eNwr46jxc" />
+    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-24JELY2TNS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-24JELY2TNS');
+</script>
 
 <style>
  .login_picture{
@@ -105,7 +117,51 @@ animation-timing-function: ease-in-out;
   -webkit-text-stroke-color: black;
 }
 
+  #cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0; right: 0;
+    background: #222;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    z-index: 1000;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.2);
+  }
+  #cookie-banner button {
+    background: #9a7d1f;
+    border: none;
+    color: white;
+    padding: 10px 18px;
+    margin-left: 15px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-weight: bold;
+  }
+  #cookie-banner button:hover {
+    background: #7b6414;
+  }
+
 </style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '672663355875265');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=672663355875265&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
    
   </head>
   <body>
@@ -153,7 +209,11 @@ animation-timing-function: ease-in-out;
 
 
 
-
+<!-- Cookie Banner -->
+<div id="cookie-banner" style="display:none;">
+  Bu site çerez kullanır. Siteyi kullanmaya devam ederek çerezleri kabul etmiş olursunuz.
+  <button id="accept-cookies">Kabul Et</button>
+</div>
 
 </div>
 </div>
@@ -165,5 +225,35 @@ animation-timing-function: ease-in-out;
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+    <script>
+  // Çerezi kontrol et
+  function getCookie(name) {
+    const value = "; " + document.cookie;
+    const parts = value.split("; " + name + "=");
+    if (parts.length === 2) return parts.pop().split(";").shift();
+  }
+
+  // Çerez ayarla (ad, değer, gün)
+  function setCookie(name, value, days) {
+    const d = new Date();
+    d.setTime(d.getTime() + (days*24*60*60*1000));
+    const expires = "expires=" + d.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+  }
+
+  // Banner göster/gizle kontrolü
+  window.onload = function() {
+    if (!getCookie("cookies_accepted")) {
+      document.getElementById("cookie-banner").style.display = "block";
+    }
+  };
+
+  // Kabul butonuna tıklandığında
+  document.getElementById("accept-cookies").onclick = function() {
+    setCookie("cookies_accepted", "yes", 365); // 1 yıl sakla
+    document.getElementById("cookie-banner").style.display = "none";
+  };
+</script>
   </body>
 </html>

@@ -80,6 +80,17 @@
 		});
 		});
 	</script>
+	 <meta name="google-site-verification" content="DHufTRNHsyUi3qvM6Ed8b3LCTrtN0i7hF-eNwr46jxc" />
+	
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-24JELY2TNS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-24JELY2TNS');
+</script>
 
 	<style>
 		.a {
@@ -183,6 +194,8 @@ transition-duration: 0.5s !important;
 
 
 	</style>
+	
+	
 
 </head>
 
@@ -258,101 +271,14 @@ transition-duration: 0.5s !important;
     ============================ -->
 
 	<section id="price">
-<div class="block">
-						<h1 class="heading">سوق<span> سريع<span></h1>
-						<ul>
-</div>
-
+		<div class="block">
+			<h1 class="heading">Hızlı <span>Market</span></h1>
+			<ul>
+		</div>
 		<?php include '../connect.php'; ?>	
 	</section>
-	<section id="blog">
-		<div class="container ">
-			<div class="row ">
-				<div class="col-md-12 ">
-					<div class="block">
-						<h1 class="heading">أفضل الأذواق معًا</h1>
-						<ul>
-							
-							<li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="300ms">
-								<div data-toggle="modal" data-target="#kuruyemisler">
-								<div class="blog-img">
-									<img src="../images/main/badem.jpg" alt="Taze_kuruyemişler" style="object-fit: cover; width: 100%; max-height: 350px;" >
-								</div>
-								<div class="content-right">
-									<h3>المكسرات المحمصة الطازجة </h3>
-									<p>...قم بتجديد طاقتك بالمكسرات المحمصة الطازجة
-									</p>
-								</div>
-							</div>
-							</li>
 
-
-							
-							<li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="400ms">
-								<div data-toggle="modal" data-target="#drajeler">
-								<div class="blog-img">
-									<img src="../images/main/bogurtlen.jpg" alt="Çikolatali_drajeler" style="object-fit: cover; width: 100%; max-height: 350px;">
-								</div>
-								<div class="content-right">
-									<h3>حلوى الشوكولاتة اللذيذة</h3>
-									<p>السعادة في كل قضمة: استمتع برحلة حلوة مع حلوى الشوكولاتة اللذيذة...
-									</p>
-								</div>
-							</div>
-							</li>
-							<li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="500ms">
-									<div data-toggle="modal" data-target="#kahveler">
-								<div class="content-left">
-									<h3>قهوة تركية خاصة</h3>
-									<p> طعم كلاسيكي، رائحة رائعة، نكهة لا غنى عنها... 
-									</p>
-								</div>
-								<div class="blog-img-2">
-									<img src="../images/main/kahve.jpg" alt="blog-img" style="object-fit: cover; width: 100%; max-height: 350px;">
-								</div>
-							</div>
-							</li>
-							<li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="600ms">
-								<div data-toggle="modal" data-target="#caylar">
-								<div class="content-left">
-									<h3>مزيج الشاي الأصلي</h3>
-									<p>الشاي الطبيعي المختار والمجفف 									</p>
-								</div>
-								<div class="blog-img-2">
-									<img src="../images/main/cay.jpg" alt="blog-img" style="object-fit: cover; width: 100%; max-height: 350px;">
-								</div>
-								</div>
-							</li>
-							<li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="700ms">
-								<div data-toggle="modal" data-target="#baharatlar">
-								<div class="blog-img">
-									<img src="../images/main/baharat.jpg" alt="blog-img" style="object-fit: cover; width: 100%; max-height: 350px;">
-								</div>
-								<div class="content-right">
-									<h3>التوابل الطازجة الأكثر اختيارًا</h3>
-									<p>إن سر النكهة يكمن في قليل من التوابل الصحيحة...
-									</p>
-								</div>
-								</div>
-							</li>
-							<li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="800ms">
-								<div data-toggle="modal" data-target="#kurumeyveler">
-								<div class="blog-img">
-									<img src="../images/main/kurulimon.jpg" alt="blog-img" style="object-fit: cover; width: 100%; max-height: 350px;">
-								</div>
-								<div class="content-right">
-									<h3>فواكه مجففة تناسب جميع الأذواق </h3>
-									<p>متعة حلوة مع فواكهنا المجففة الطازجة واللذيذة التي تناسب جميع الأذواق...</p>
-								</div>
-								</div>
-							</li>
-						</ul>
-						
-					</div>
-				</div><!-- .col-md-12 close -->
-			</div><!-- .row close -->
-		</div><!-- .containe close -->
-	</section><!-- #blog close -->
+	<?php include('../blog_module.php'); ?>
 
 								<!-- Modal -->
 					<div class="modal fade" id="kuruyemisler" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
